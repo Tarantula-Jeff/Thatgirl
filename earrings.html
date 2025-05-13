@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jewelry Products</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* === NAVIGATION === */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+    }
+
+    nav a:last-child {
+      color: #d17b52;
+    }
+
+    /* === TOP CIRCLE SECTION === */
+    .circle-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      gap: 1.5rem;
+    }
+
+    .circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .circle.large {
+      width: 320px;
+      height: 320px;
+    }
+
+    .circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* === JEWELRY PRODUCTS SECTION === */
+    .section {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .product-card {
+      flex: 1 1 280px;
+      max-width: 320px;
+    }
+
+    .product-image {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #ccc;
+      margin: 0 5px;
+    }
+
+    .dot.active {
+      background-color: #000;
+    }
+
+    .product-name {
+      font-size: 1rem;
+      margin-top: 1rem;
+      letter-spacing: 1px;
+    }
+
+    .product-price {
+      font-size: 1.1rem;
+      font-style: italic;
+      margin-top: 0.2rem;
+    }
+
+    /* === RESPONSIVE BREAKPOINTS === */
+
+    @media (max-width: 1024px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .circle.large {
+        width: 280px;
+        height: 280px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        justify-content: center;
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+
+      .circle {
+        width: 150px;
+        height: 150px;
+      }
+
+      .circle.large {
+        width: 240px;
+        height: 240px;
+      }
+
+      .product-card {
+        flex: 1 1 100%;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .circle {
+        width: 120px;
+        height: 120px;
+      }
+
+      .circle.large {
+        width: 200px;
+        height: 200px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .product-name, .product-price {
+        font-size: 0.95rem;
+      }
+    }
+
+
+    .jewelry-styles {
+  padding: 4rem 2rem;
+  background-color: #fffaf8;
+}
+
+.jewelry-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 3rem;
+}
+
+.styles-header {
+  text-align: right;
+}
+
+.styles-header .subheading {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #a47551;
+  font-weight: 600;
+}
+
+.styles-header h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.styles-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.style-card {
+  background: white;
+  padding: 2rem 1rem;
+  width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  background-color: #e6b59b;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.style-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.style-card p {
+  font-size: 0.85rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .styles-header {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .jewelry-wrapper {
+    justify-content: center;
+  }
+
+  .styles-header h2 {
+    font-size: 2rem;
+  }
+
+  .style-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .styles-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .style-card {
+    width: 100%;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="logo">
+      <img src="https://via.placeholder.com/100x50?text=Logo" alt="Logo">
+    </div>
+    <nav>
+      <a href="#">HOME</a>
+      <a href="#">ABOUT US</a>
+      <a href="#">CONTACT</a>
+      <a href="#">JEWEL PRODUCTS</a>
+    </nav>
+  </header>
+
+  <!-- Circle Section -->
+  <section class="circle-section">
+    <div class="circle">
+      <img src="https://via.placeholder.com/300x300?text=Image+1" alt="">
+    </div>
+    <div class="circle large">
+      <img src="https://via.placeholder.com/400x400?text=Main+Face" alt="">
+    </div>
+    <div class="circle">
+      <img src="https://via.placeholder.com/300x300?text=Image+3" alt="">
+    </div>
+  </section>
+
+<!-- Jewelry Styles Section -->
+<section class="jewelry-styles">
+    <div class="jewelry-wrapper">
+      <div class="styles-header">
+        <span class="subheading">JEWELRY STYLES</span>
+        <h2>Everyday <br> Elegance</h2>
+      </div>
+    </div>
+  
+    <div class="styles-grid">
+      <div class="style-card">
+        <div class="icon-circle">💍</div>
+        <h3>BRACELETS</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+      </div>
+      <div class="style-card">
+        <div class="icon-circle">👂</div>
+        <h3>EARRINGS</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+      </div>
+      <div class="style-card">
+        <div class="icon-circle">📿</div>
+        <h3>NECKLACE</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+      </div>
+      <div class="style-card">
+        <div class="icon-circle">🦶</div>
+        <h3>ANKLETS</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+      </div>
+      <div class="style-card">
+        <div class="icon-circle">💎</div>
+        <h3>RINGS</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- Jewelry Section -->
+  <section class="section">
+    <h1>Sample Headline</h1>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/400x400/FFD700/000000?text=CHAIN+TINS" alt="Chain Tins" class="product-image" />
+        <div class="dots">
+          <div class="dot active"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="product-name">CHAIN TINS</div>
+        <div class="product-price">GHC 300</div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/400x400/FFD700/000000?text=CHAIN+TINS" alt="Chain Tins" class="product-image" />
+        <div class="dots">
+          <div class="dot active"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="product-name">CHAIN TINS</div>
+        <div class="product-price">GHC 300</div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/400x400/FFD700/000000?text=CHAIN+TINS" alt="Chain Tins" class="product-image" />
+        <div class="dots">
+          <div class="dot active"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="product-name">CHAIN TINS</div>
+        <div class="product-price">GHC 300</div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
