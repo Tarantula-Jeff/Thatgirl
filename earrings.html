@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jewelry Products</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #fff;
+      color: #000;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+    }
+
+    nav a:last-child {
+      color: #d17b52;
+    }
+
+    .circle-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      gap: 1.5rem;
+    }
+
+    .circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .circle.large {
+      width: 320px;
+      height: 320px;
+    }
+
+    .circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .section {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .product-card {
+      flex: 1 1 280px;
+      max-width: 320px;
+    }
+
+    .product-image {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      transition: none;
+      pointer-events: none;
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #ccc;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color: #000;
+    }
+
+    .product-name {
+      font-size: 1rem;
+      margin-top: 1rem;
+      letter-spacing: 1px;
+    }
+
+    .product-price {
+      font-size: 1.1rem;
+      font-style: italic;
+      margin-top: 0.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .product-card {
+        flex: 1 1 100%;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .product-name, .product-price {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="https://via.placeholder.com/100x50?text=Logo" alt="Logo">
+  </div>
+  <nav>
+    <a href="#">HOME</a>
+    <a href="#">ABOUT US</a>
+    <a href="#">CONTACT</a>
+    <a href="#">JEWEL PRODUCTS</a>
+  </nav>
+</header>
+
+<!-- Circle Section -->
+<section class="circle-section">
+  <div class="circle">
+    <img src="https://via.placeholder.com/300x300?text=Image+1" alt="">
+  </div>
+  <div class="circle large">
+    <img src="https://via.placeholder.com/400x400?text=Main+Face" alt="">
+  </div>
+  <div class="circle">
+    <img src="https://via.placeholder.com/300x300?text=Image+3" alt="">
+  </div>
+</section>
+
+<!-- Jewelry Styles Section -->
+<section class="jewelry-styles">
+    <div class="jewelry-wrapper">
+      <div class="styles-header">
+        <span class="subheading">JEWELRY STYLES</span>
+        <h2>Everyday <br> Elegance</h2>
+      </div>
+    </div>
+  
+    <div class="styles-grid">
+      <div class="style-card">
+        <div class="icon-circle">💍</div>
+        <h3>BRACELETS</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+      </div>
+      <div class="style-card">
+        <div class="icon-circle">👂</div>
+        <h3>EARRINGS</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+      </div>
+      <div class="style-card">
+        <div class="icon-circle">📿</div>
+        <h3>NECKLACE</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+      </div>
+      <div class="style-card">
+        <div class="icon-circle">🦶</div>
+        <h3>ANKLETS</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+      </div>
+      <div class="style-card">
+        <div class="icon-circle">💎</div>
+        <h3>RINGS</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Jewelry Section -->
+<section class="section">
+  <h1>Sample Headline</h1>
+  <div class="products">
+
+    <div class="product-card" data-images='["https://via.placeholder.com/400x400/FFD700/000000?text=CHAIN+TINS","https://via.placeholder.com/400x400/DAA520/000000?text=NEW+LOOK"]'>
+      <img src="https://via.placeholder.com/400x400/FFD700/000000?text=CHAIN+TINS" class="product-image" />
+      <div class="dots">
+        <div class="dot active" data-index="0"></div>
+        <div class="dot" data-index="1"></div>
+      </div>
+      <div class="product-name">CHAIN TINS</div>
+      <div class="product-price">GHC 300</div>
+    </div>
+
+    <div class="product-card" data-images='["https://via.placeholder.com/400x400/8A2BE2/ffffff?text=PURPLE+GLAM","https://via.placeholder.com/400x400/4B0082/ffffff?text=GLITTERY"]'>
+      <img src="https://via.placeholder.com/400x400/8A2BE2/ffffff?text=PURPLE+GLAM" class="product-image" />
+      <div class="dots">
+        <div class="dot active" data-index="0"></div>
+        <div class="dot" data-index="1"></div>
+      </div>
+      <div class="product-name">PURPLE GLAM</div>
+      <div class="product-price">GHC 250</div>
+    </div>
+
+    <div class="product-card" data-images='["https://via.placeholder.com/400x400/FF69B4/ffffff?text=PINKY","https://via.placeholder.com/400x400/FFC0CB/000000?text=PRETTY"]'>
+      <img src="https://via.placeholder.com/400x400/FF69B4/ffffff?text=PINKY" class="product-image" />
+      <div class="dots">
+        <div class="dot active" data-index="0"></div>
+        <div class="dot" data-index="1"></div>
+      </div>
+      <div class="product-name">PINKY</div>
+      <div class="product-price">GHC 270</div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.product-card').forEach(card => {
+    const images = JSON.parse(card.dataset.images);
+    const imgElement = card.querySelector('.product-image');
+    const dots = card.querySelectorAll('.dot');
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        dots.forEach(d => d.classList.remove('active'));
+        dot.classList.add('active');
+        const index = parseInt(dot.dataset.index);
+        imgElement.src = images[index];
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -95,13 +95,16 @@
 
     .product-card {
       flex: 1 1 280px;
-      max-width: 320px;
+      max-width: 325px;
     }
 
     .product-image {
+      height: 390px;
       width: 100%;
-      border-radius: 8px;
-    }
+      border-radius: 8px;  
+      transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
 
     .dots {
       display: flex;
@@ -368,43 +371,103 @@
   </section>
   
   
-  <!-- Jewelry Section -->
   <section class="section">
-    <h1>Sample Headline</h1>
+    <h1>Jewelry Collection</h1>
     <div class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/400x400/FFD700/000000?text=CHAIN+TINS" alt="Chain Tins" class="product-image" />
+  
+      <!-- Product 1 -->
+      <div class="product-card" data-images='[
+        "./ring (1).jpg",
+        "./ring (2).jpg",
+        "./ring (3).jpg"
+      ]'>
+        <img class="product-image" src="https://via.placeholder.com/400x400/FFD700/000000?text=CHAIN+buttS+1" />
         <div class="dots">
-          <div class="dot active"></div>
-          <div class="dot"></div>
+          <div class="dot active" data-index="0"></div>
+          <div class="dot" data-index="1"></div>
+          <div class="dot" data-index="2"></div>
         </div>
         <div class="product-name">CHAIN TINS</div>
         <div class="product-price">GHC 300</div>
       </div>
-
-      <div class="product-card">
-        <img src="https://via.placeholder.com/400x400/FFD700/000000?text=CHAIN+TINS" alt="Chain Tins" class="product-image" />
+  
+      <!-- Product 2 -->
+      <div class="product-card" data-images='[
+        "https://via.placeholder.com/400x400/8A2BE2/ffffff?text=PURPLE+GLAM+1",
+        "https://via.placeholder.com/400x400/4B0082/ffffff?text=PURPLE+GLAM+2"
+      ]'>
+        <img class="product-image" src="https://via.placeholder.com/400x400/8A2BE2/ffffff?text=PURPLE+GLAM+1" />
         <div class="dots">
-          <div class="dot active"></div>
-          <div class="dot"></div>
+          <div class="dot active" data-index="0"></div>
+          <div class="dot" data-index="1"></div>
         </div>
-        <div class="product-name">CHAIN TINS</div>
-        <div class="product-price">GHC 300</div>
+        <div class="product-name">PURPLE GLAM</div>
+        <div class="product-price">GHC 250</div>
       </div>
-
-      <div class="product-card">
-        <img src="https://via.placeholder.com/400x400/FFD700/000000?text=CHAIN+TINS" alt="Chain Tins" class="product-image" />
+  
+      <!-- Product 3 -->
+      <div class="product-card" data-images='[
+        "https://via.placeholder.com/400x400/FF69B4/ffffff?text=PINKY+1",
+        "https://via.placeholder.com/400x400/FFC0CB/000000?text=PINKY+2"
+      ]'>
+        <img class="product-image" src="https://via.placeholder.com/400x400/FF69B4/ffffff?text=PINKY+1" />
         <div class="dots">
-          <div class="dot active"></div>
-          <div class="dot"></div>
+          <div class="dot active" data-index="0"></div>
+          <div class="dot" data-index="1"></div>
         </div>
-        <div class="product-name">CHAIN TINS</div>
-        <div class="product-price">GHC 300</div>
+        <div class="product-name">PINKY</div>
+        <div class="product-price">GHC 270</div>
       </div>
+  
     </div>
   </section>
-
+  
+  <script>
+    document.querySelectorAll('.product-card').forEach((card) => {
+      const images = JSON.parse(card.getAttribute('data-images'));
+      const img = card.querySelector('.product-image');
+      const dots = card.querySelectorAll('.dot');
+      let index = 0;
+      let intervalId;
+      let isHovered = false;
+  
+      img.style.transition = 'transform 0.6s ease, opacity 0.6s ease';
+  
+      function showImage(i) {
+        img.style.opacity = '0';
+        img.style.transform = 'translateX(30px)';
+  
+        setTimeout(() => {
+          img.src = images[i];
+          img.style.opacity = '1';
+          img.style.transform = 'translateX(0)';
+          dots.forEach(dot => dot.classList.remove('active'));
+          dots[i].classList.add('active');
+        }, 300);
+      }
+  
+      function startSlider() {
+        intervalId = setInterval(() => {
+          if (!isHovered) {
+            index = (index + 1) % images.length;
+            showImage(index);
+          }
+        }, 4000);
+      }
+  
+      card.addEventListener('mouseenter', () => isHovered = true);
+      card.addEventListener('mouseleave', () => isHovered = false);
+  
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          index = parseInt(dot.dataset.index);
+          showImage(index);
+        });
+      });
+  
+      startSlider();
+    });
+  </script>
+  
 </body>
 </html>
-
-//jfj
