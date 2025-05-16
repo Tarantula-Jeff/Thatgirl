@@ -4,7 +4,284 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jewelry Products</title>
+
+
   <style>
+    /* Smooth scrolling effect */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Button styling */
+    .btn {
+        padding: 12px 20px;
+        font-size: 18px;
+        background-color: blue;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .btn:hover {
+        background-color: darkblue;
+    }
+</style>
+
+  
+  <style>
+
+    /* Initial state: Slide in from the bottom */
+.slide-in-bottom {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.8s ease-in-out;
+}
+
+/* Active state: Slides into place */
+.slide-in-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  </style>
+  
+  <style>
+    /* Initial state before sliding in */
+  .slide-in-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.8s ease-in-out;
+  }
+  
+  .slide-in-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.8s ease-in-out;
+  }
+  
+  /* Active state when in view */
+  .slide-in-active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  </style>
+
+  <style>
+    /* Slider Container */
+    .slider {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      height: 400px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Slider Images */
+    .slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    /* Show first image by default */
+    .slides img.active {
+      display: block;
+    }
+  </style>
+ 
+ <style>
+    .underline-custom {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 5px; /* Adjust padding to position underline */
+    }
+    
+    .underline-custom::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 4px; /* Adjust underline thickness */
+        background: linear-gradient(to right, #FFD700, #FF8C00); /* Gradient colors */
+        border-radius: 2px; /* Smooth edges */
+        transform: scaleX(0); /* Start with no underline */
+        transform-origin: right;
+        transition: transform 0.4s ease;
+    }
+    
+    .underline-custom:hover::after {
+        transform: scaleX(1); /* Full underline on hover */
+        transform-origin: left;
+    }
+    </style>
+    
+
+  <style>
+    /* Your in-page CSS */
+    .playwrite-au-vic-guides-regular {
+        font-family: "Playwrite AU VIC Guides", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+</style>
+
+<style>
+.unlock-regular {
+font-family: "Unlock", serif;
+font-weight: 400;
+font-style: normal;
+}
+</style>
+
+  <style>
+    /* Slide In */
+    .slide-in {
+        animation: slideIn 1.5s ease-out forwards;
+    }
+    @keyframes slideIn {
+        from {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* Slide Out */
+    .slide-out {
+        animation: slideOut 1.5s ease-in forwards;
+    }
+    @keyframes slideOut {
+        from {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+    }
+</style>
+
+      
+  <style>
+
+      /* Animations */
+      .fade-in {
+          animation: fadeIn 2s ease-in-out;
+      }
+      @keyframes fadeIn {
+          from {
+              opacity: 0;
+          }
+          to {
+              opacity: 1;
+          }
+      }
+
+      .slide-in {
+          animation: slideIn 1.5s ease-out;
+      }
+      @keyframes slideIn {
+          from {
+              transform: translateY(-50px);
+              opacity: 0;
+          }
+          to {
+              transform: translateY(0);
+              opacity: 1;
+          }
+      }
+
+      .pulse {
+          animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+          0%, 100% {
+              transform: scale(1);
+          }
+          50% {
+              transform: scale(1.1);
+          }
+      }
+  </style>
+
+<style>
+  /* Custom styles for carousel navigation */
+  .carousel-button {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+  .carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+</style>
+
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+defer
+></script>
+  <style>
+
+.welcome-section {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.welcome-container {
+  position: relative;
+  width: 650px;
+  height: 650px;
+}
+
+.circle-image {
+  width: 600px;
+  height: 500px;
+  background-image: url('./ring\ \(5\).jpg'); /* Replace this with your actual image */
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.text-box {
+  position: absolute;
+  top: 50%;
+  left: -40px; /* This pulls it leftward to overlap */
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 25px;
+  width: 250px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.text-box h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.text-box p {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+}
+
+
     * {
       box-sizing: border-box;
     }
@@ -74,6 +351,13 @@
       object-fit: cover;
     }
 
+    .icon-circle img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+
     /* === JEWELRY PRODUCTS SECTION === */
     .section {
       text-align: center;
@@ -137,6 +421,26 @@
     }
 
     /* === RESPONSIVE BREAKPOINTS === */
+
+    @media (max-width: 1024px) {
+  .welcome-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .text-box {
+    position: static;
+    margin-bottom: 20px;
+    
+  }
+.circle-image {
+  max-width: 490px;
+  flex-direction: column;
+    align-items: center;
+
+}
+
+}
+
 
     @media (max-width: 1024px) {
       h1 {
@@ -203,7 +507,7 @@
 
     .jewelry-styles {
   padding: 4rem 2rem;
-  background-color: #fffaf8;
+  background-color: #d6c0cd62;
 }
 
 .jewelry-wrapper {
@@ -240,7 +544,7 @@
 .style-card {
   background: white;
   padding: 2rem 1rem;
-  width: 180px;
+  width: 210px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: center;
@@ -269,7 +573,7 @@
 .style-card p {
   font-size: 0.85rem;
   color: #444;
-  line-height: 1.4;
+  height: 200px;
 }
 
 /* Responsive Breakpoints */
@@ -291,18 +595,50 @@
     width: 45%;
   }
 }
-
-@media (max-width: 480px) {
-  .styles-header h2 {
-    font-size: 1.8rem;
-  }
-
-  .style-card {
-    width: 100%;
-  }
-}
-
   </style>
+
+<style>
+  /* Roll-in Animation */
+  /* Initial hidden state */
+  /* Ensure Video Doesn't Overflow */
+  .roll-in {
+      opacity: 0;
+      transform: translateY(100px) rotate(360deg);
+      transition: transform 2s ease-out, opacity 2s ease-out;
+  }
+  
+  .roll-in.show {
+      opacity: 1;
+      transform: translateY(0) rotate(0deg);
+  }
+  
+  /* Mobile Fix */
+  @media (max-width: 768px) {
+      .roll-in {
+          transform: translateY(50px); /* Less movement */
+      }
+  
+      .video-container video {
+          max-height: 300px; /* Prevents overflow */
+          width: 100%;
+          object-fit: cover;
+      }
+  }
+  
+      </style>
+
+      <style>
+          @keyframes roll {
+              0% { transform: translateX(100%); }
+              100% { transform: translateX(-100%); }
+          }
+          
+          .animate-roll {
+              width: 200%;
+              display: flex;
+              animation: roll 10s linear infinite;
+          }
+          </style>
 </head>
 <body>
 
@@ -322,19 +658,32 @@
   <!-- Circle Section -->
   <section class="circle-section">
     <div class="circle">
-      <img src="https://via.placeholder.com/300x300?text=Image+1" alt="">
+      <img src="./ring (8).jpg" alt="">
     </div>
     <div class="circle large">
-      <img src="https://via.placeholder.com/400x400?text=Main+Face" alt="">
+      <img src="./ring (7).jpg" alt="">
     </div>
     <div class="circle">
-      <img src="https://via.placeholder.com/300x300?text=Image+3" alt="">
+      <img src="./ring (6).jpg" alt="">
     </div>
   </section>
 
+<!--Welcome blog-->
+<section class="welcome-section">
+  <div class="welcome-container">
+    <div class="circle-image"></div>
+    <div class="text-box slide-in-left">
+      <h2>Welcome!</h2>
+      <p><em>New season, new shine. Elevate your summer style with radiant, gold-plated jewelry that pairs perfectly with sun-kissed skin and breezy outfits—because your accessories should shine as bright as you do.</em></p>
+    </div>
+  </div>
+</section>
+
+  
+
 <!-- Jewelry Styles Section -->
 <section class="jewelry-styles">
-    <div class="jewelry-wrapper">
+    <div class="jewelry-wrapper slide-in-left">
       <div class="styles-header">
         <span class="subheading">JEWELRY STYLES</span>
         <h2>Everyday <br> Elegance</h2>
@@ -342,32 +691,47 @@
     </div>
   
     <div class="styles-grid">
-      <div class="style-card">
-        <div class="icon-circle">💍</div>
+      <div class="style-card slide-in">
+        <div class="icon-circle slide-in pulse">
+          <img src="./components/bracelet.png" alt="Bracelet Icon" />
+        </div>
         <h3>BRACELETS</h3>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+        <p>Duis aute irure doloreprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
       </div>
-      <div class="style-card">
-        <div class="icon-circle">👂</div>
+      
+      <div class="style-card slide-in-bottom">
+        <div class="icon-circle slide-in pulse">
+          <img src="./components/hoop-earrings.png" alt="Earring Icon" />
+        </div>
         <h3>EARRINGS</h3>
         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
       </div>
-      <div class="style-card">
-        <div class="icon-circle">📿</div>
+      
+      <div class="style-card slide-in">
+        <div class="icon-circle slide-in pulse">
+          <img src="./components/jewelry.png" alt="Necklace Icon" />
+        </div>
         <h3>NECKLACE</h3>
         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
       </div>
-      <div class="style-card">
-        <div class="icon-circle">🦶</div>
+      
+      <div class="style-card slide-in-bottom">
+        <div class="icon-circle slide-in pulse">
+          <img src="./components/anklet.png" alt="Anklet Icon" />
+        </div>
         <h3>ANKLETS</h3>
         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
       </div>
-      <div class="style-card">
-        <div class="icon-circle">💎</div>
+      
+      <div class="style-card slide-in">
+        <div class="icon-circle slide-in pulse">
+          <img src="./components/wedding-rings.png" alt="Ring Icon" />
+        </div>
         <h3>RINGS</h3>
         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
       </div>
     </div>
+    
   </section>
   
   
@@ -468,6 +832,81 @@
       startSlider();
     });
   </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+      const slideElements = document.querySelectorAll(".slide-in, .slide-out");
+
+      const observer = new IntersectionObserver(
+          (entries) => {
+              entries.forEach((entry) => {
+                  if (entry.isIntersecting) {
+                      entry.target.classList.add("slide-in");
+                      entry.target.classList.remove("slide-out");
+                  } else {
+                      entry.target.classList.remove("slide-in");
+                      entry.target.classList.add("slide-out");
+                  }
+              });
+          },
+          { threshold: 0.1 } // Trigger animation when 10% of the element is visible
+      );
+
+      slideElements.forEach((el) => observer.observe(el));
+  });
+</script>
+<!--slides script-->
+<script>
+  const slides = document.querySelectorAll(".slides img");
+  let currentIndex = 0;
+
+  function showNextSlide() {
+    slides[currentIndex].classList.remove("active");
+    currentIndex = (currentIndex + 1) % slides.length;
+    slides[currentIndex].classList.add("active");
+  }
+
+  // Change image every 2 seconds (2000ms)
+  setInterval(showNextSlide, 5000);
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slideInElements = document.querySelectorAll('.slide-in-left, .slide-in-right');
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('slide-in-active');
+        } else {
+          entry.target.classList.remove('slide-in-active'); // Remove when scrolling out
+        }
+      });
+    }, { threshold: 0.2 });
+  
+    slideInElements.forEach(el => observer.observe(el));
+  });
+  
+  </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const slideInElements = document.querySelectorAll('.slide-in-bottom');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('slide-in-active');
+      } else {
+        entry.target.classList.remove('slide-in-active'); // Remove on scroll out
+      }
+    });
+  }, { threshold: 0.2 });
+
+  slideInElements.forEach(el => observer.observe(el));
+});
+</script>
+
   
 </body>
 </html>
