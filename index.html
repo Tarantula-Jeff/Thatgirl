@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jewelry Products</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
 
   <style>
@@ -303,7 +304,7 @@ defer
     }
 
     .logo img {
-      height: 50px;
+      height: 130px;
     }
 
     nav {
@@ -316,10 +317,6 @@ defer
       text-decoration: none;
       color: black;
       font-weight: 500;
-    }
-
-    nav a:last-child {
-      color: #d17b52;
     }
 
     /* === TOP CIRCLE SECTION === */
@@ -430,6 +427,12 @@ defer
   .text-box {
     position: static;
     margin-bottom: 20px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%; /* or any preferred width */
+    text-align: center;
     
   }
 .circle-image {
@@ -460,10 +463,19 @@ defer
       }
 
       nav {
-        justify-content: center;
+        justify-content: flex-end;
+        
         width: 100%;
         margin-top: 0.5rem;
       }
+
+      nav a {
+    color: white !important;
+  }
+
+  nav a.jewel-link {
+    color: #d17b52 !important; /* keep orange for jewel even on mobile */
+  }
 
       .circle {
         width: 150px;
@@ -638,6 +650,16 @@ defer
               display: flex;
               animation: roll 10s linear infinite;
           }
+
+          
+.nav-link {
+  color: black;
+}
+
+nav a.jewel-link {
+  color: #d17b52;
+}
+          
           </style>
 </head>
 <body>
@@ -645,13 +667,45 @@ defer
   <!-- Header / Navigation -->
   <header>
     <div class="logo">
-      <img src="https://via.placeholder.com/100x50?text=Logo" alt="Logo">
+      <img src="./components/logo.jpeg" alt="Logo">
     </div>
     <nav>
-      <a href="#">HOME</a>
-      <a href="#">ABOUT US</a>
-      <a href="#">CONTACT</a>
-      <a href="#">JEWEL PRODUCTS</a>
+   <!-- ✅ REPLACE your existing mobile <ul id="menu">... with this structure just after <nav> -->
+<div id="mobile-overlay" class="sm:hidden fixed inset-0 z-50 hidden">
+  <div class="flex h-full w-full">
+    <!-- 70% Black Sidebar on Left -->
+    <div id="mobileMenu" class="w-[70%] bg-black text-white p-6 relative transform translate-x-full transition-transform duration-700 ease-in-out">
+      <!-- Close Button -->
+      <button id="menu-close" class="absolute top-4 right-4 text-white text-2xl">
+        &times;
+      </button>
+
+      <!-- Navigation Links -->
+      <ul class="mt-12 space-y-6 uppercase text-sm">
+        <li><a href="#" class="nav-link">Home</a></li>
+        <li><a href="#" class="nav-link">About Us</a></li>
+        <li><a href="#" class="nav-link">Contacts</a></li>
+        <li><a href="#" class="nav-link jewel-link">Jewel Products</a></li>
+      </ul>
+    </div>
+
+    <!-- 30% Transparent Ash Background on Right -->
+    <div id="menu-backdrop" class="w-[30%] bg-gray-400 bg-opacity-30" role="button"></div>
+  </div>
+</div>
+
+<!-- ✅ Your Hamburger Button remains the same -->
+<button id="menu-toggle" class="sm:hidden text-black text-2xl focus:outline-none">
+  &#9776;
+</button>
+<!-- Desktop Nav: visible only on sm and above -->
+<ul class="hidden sm:flex items-center space-x-6 uppercase text-sm">
+  <li><a href="#" class="nav-link">Home</a></li>
+  <li><a href="#" class="nav-link">About Us</a></li>
+  <li><a href="#" class="nav-link">Contacts</a></li>
+  <li><a href="#" class="nav-link jewel-link">Jewel Products</a></li>
+</ul>
+
     </nav>
   </header>
 
@@ -673,8 +727,8 @@ defer
   <div class="welcome-container">
     <div class="circle-image"></div>
     <div class="text-box slide-in-left">
-      <h2>Welcome!</h2>
-      <p><em>New season, new shine. Elevate your summer style with radiant, gold-plated jewelry that pairs perfectly with sun-kissed skin and breezy outfits—because your accessories should shine as bright as you do.</em></p>
+      <h2 class="slide-in-left">Welcome!</h2>
+      <p class="slide-in-right"><em>New season, new shine. Elevate your summer style with radiant, gold-plated jewelry that pairs perfectly with sun-kissed skin and breezy outfits—because your accessories should shine as bright as you do.</em></p>
     </div>
   </div>
 </section>
@@ -906,6 +960,35 @@ document.addEventListener('DOMContentLoaded', function () {
   slideInElements.forEach(el => observer.observe(el));
 });
 </script>
+
+<!-- ✅ JavaScript to toggle the menu -->
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const menuClose = document.getElementById("menu-close");
+  const mobileOverlay = document.getElementById("mobile-overlay");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const menuBackdrop = document.getElementById("menu-backdrop");
+
+  // Show mobile menu
+  menuToggle.addEventListener("click", () => {
+    mobileOverlay.classList.remove("hidden");
+    setTimeout(() => {
+      mobileMenu.classList.remove("translate-x-full");
+    }, 10);
+  });
+
+  // Hide mobile menu
+  function closeMobileMenu() {
+    mobileMenu.classList.add("translate-x-full");
+    setTimeout(() => {
+      mobileOverlay.classList.add("hidden");
+    }, 400); // wait for slide-out to finish
+  }
+
+  menuClose.addEventListener("click", closeMobileMenu);
+  menuBackdrop.addEventListener("click", closeMobileMenu);
+</script>
+
 
   
 </body>
